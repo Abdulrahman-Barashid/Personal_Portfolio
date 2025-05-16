@@ -1,8 +1,6 @@
 // Animation script for projects page
 document.addEventListener('DOMContentLoaded', () => {
-    // Project cards animation
     const projectCards = document.querySelectorAll('.project-card');
-    
     projectCards.forEach((card, index) => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
