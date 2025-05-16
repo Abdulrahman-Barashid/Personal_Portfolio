@@ -14,3 +14,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100 * index);
     });
 });
+//  image slider 
+document.querySelectorAll('.project-image-slider').forEach((slider) => {
+    const images = slider.querySelectorAll('img');
+    const nextBtn = slider.querySelector('.next-btn');
+    const prevBtn = slider.querySelector('.prev-btn');
+    let currentIndex = 0;
+
+    function showImage(index) {
+        images.forEach((img, i) => {
+            img.classList.toggle('active', i === index);
+        });
+    }
+
+    // Handle Next
+    nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    });
+
+    // Handle Previous
+    prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    });
+
+    showImage(currentIndex);
+});
